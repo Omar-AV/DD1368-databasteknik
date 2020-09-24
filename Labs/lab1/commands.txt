@@ -1,0 +1,3 @@
+$ scp ~/Downloads/mondial-schema.psql nikjo@student-shell-1.sys.kth.se:/home/n/i/nikjo/DD1368/lab1
+
+$ scp ~/Downloads/mondial-inputs.psql nikjo@student-shell-1.sys.kth.se:/home/n/i/nikjo/DD1368/lab1

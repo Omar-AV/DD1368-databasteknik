@@ -1,0 +1,1 @@
+SELECT name, capital, population FROM country WHERE country.name='Zimbabwe';

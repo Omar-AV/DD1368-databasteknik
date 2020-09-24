@@ -1,0 +1,5 @@
+SELECT * 
+FROM encompasses INNER JOIN country 
+ON country.code = encompasses.country
+ORDER BY population DESC
+LIMIT 5;

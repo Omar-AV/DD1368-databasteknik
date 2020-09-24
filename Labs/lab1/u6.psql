@@ -1,0 +1,7 @@
+SELECT (gdp/population) AS gdppercapita, country.name
+FROM country INNER JOIN economy 
+ON country.code = economy.country
+WHERE gdp IS NOT NULL AND population IS NOT NULL
+ORDER BY gdppercapita DESC
+LIMIT FLOOR((SELECT COUNT(*) FROM country)*0.1)
+;

@@ -1,0 +1,9 @@
+
+SELECT TLAT-DLAT, TLONG-DLONG,  SQRT(((TLAT-DLAT)^2)+((TLONG-DLONG)^2)) AS distance FROM
+(
+    SELECT name, (source).latitude AS TLAT, (source).longitude AS TLONG FROM River WHERE name='Tevere'
+) AS x
+CROSS JOIN
+(
+    SELECT name, (source).latitude AS DLAT, (source).longitude AS DLONG FROM River WHERE name='Dalälv'
+) AS y;

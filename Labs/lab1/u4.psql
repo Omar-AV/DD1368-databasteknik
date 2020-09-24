@@ -1,0 +1,9 @@
+SELECT name, numberOfCities FROM country INNER JOIN
+(
+    SELECT country, COUNT(country) AS numberOfCities
+    FROM city
+    GROUP BY country
+    HAVING COUNT(country) >= 15 AND COUNT(country)<=20
+)
+as x
+ON country.code = x.country;

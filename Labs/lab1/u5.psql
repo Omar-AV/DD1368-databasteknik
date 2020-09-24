@@ -1,0 +1,13 @@
+// SELECT COUNT( DISTINCT country) FROM city; // RESULTS IN 245
+// SELECT COUNT(*) FROM city; // RESULTS IN 3460
+
+// AVG = 14
+
+
+SELECT AVG(numberOfCities) AS averageCities FROM 
+(
+    SELECT country, COUNT(country) AS numberOfCities
+    FROM city
+    GROUP BY country
+)
+as x;

@@ -1,3 +1,5 @@
+// Niklas
+
 SELECT name, numberOfCities FROM country INNER JOIN
 (
     SELECT country, COUNT(country) AS numberOfCities
@@ -6,4 +8,15 @@ SELECT name, numberOfCities FROM country INNER JOIN
     HAVING COUNT(country) >= 15 AND COUNT(country)<=20
 )
 as x
-ON country.code = x.country;
+ON country.code = x.country
+ORDER BY numberOfCities DESC;
+
+
+
+// Omar
+
+SELECT Country.name, COUNT(DISTINCT(City.name)) AS frequency
+FROM City INNER JOIN Country ON City.country = Country.code
+GROUP BY Country.name
+HAVING COUNT(DISTINCT(CITY.NAME)) <= 20 and COUNT(DISTINCT(CITY.NAME)) >= 15
+ORDER BY frequency DESC;

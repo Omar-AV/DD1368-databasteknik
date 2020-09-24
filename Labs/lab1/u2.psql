@@ -1,1 +1,1 @@
-SELECT name FROM city WHERE LOWER(name) LIKE 's%m';
+SELECT name FROM city WHERE LOWER(name) LIKE 's%m' ORDER BY name ASC;

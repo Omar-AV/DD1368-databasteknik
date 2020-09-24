@@ -1,5 +1,60 @@
-SELECT * 
-FROM encompasses INNER JOIN country 
-ON country.code = encompasses.country
-ORDER BY population DESC
-LIMIT 5;
+SELECT DISTINCT ( continent ) FROM encompasses;
+
+
+
+
+SELECT * FROM (
+    SELECT continent, country.name as country, population
+    FROM encompasses INNER JOIN country 
+    ON country.code = encompasses.country
+    WHERE continent = 'Africa'
+    ORDER BY population DESC
+    LIMIT 5
+) AS africa
+UNION
+SELECT * FROM  (
+    SELECT continent, country.name as country, population
+    FROM encompasses INNER JOIN country 
+    ON country.code = encompasses.country
+    WHERE continent = 'Asia'
+    ORDER BY population DESC
+    LIMIT 5
+) AS Asia
+UNION
+SELECT * FROM  (
+    SELECT continent, country.name as country, population
+    FROM encompasses INNER JOIN country 
+    ON country.code = encompasses.country
+    WHERE continent = 'South America'
+    ORDER BY population DESC
+    LIMIT 5
+) as SA
+UNION
+SELECT * FROM (
+    SELECT continent, country.name as country, population
+    FROM encompasses INNER JOIN country 
+    ON country.code = encompasses.country
+    WHERE continent = 'North America'
+    ORDER BY population DESC
+    LIMIT 5
+) as NA
+UNION
+SELECT * FROM  (
+    SELECT continent, country.name as country, population
+    FROM encompasses INNER JOIN country 
+    ON country.code = encompasses.country
+    WHERE continent = 'Australia/Oceania'
+    ORDER BY population DESC
+    LIMIT 5
+) as aceania
+UNION
+SELECT * FROM (
+    SELECT continent, country.name as country, population
+    FROM encompasses INNER JOIN country 
+    ON country.code = encompasses.country
+    WHERE continent = 'Europe'
+    ORDER BY population DESC
+    LIMIT 5
+) as europe
+
+ORDER BY continent ASC;

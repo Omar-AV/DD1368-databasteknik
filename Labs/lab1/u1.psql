@@ -1,1 +1,4 @@
-SELECT name, capital, population FROM country WHERE country.name='Zimbabwe';
+SELECT country.name as country, capital, City.population as population 
+FROM country INNER JOIN city
+ON country.capital = city.name
+WHERE country.name='Zimbabwe';

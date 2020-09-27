@@ -58,3 +58,53 @@ SELECT * FROM (
 ) as europe
 
 ORDER BY continent ASC;
+
+
+
+
+
+% Variant med cte
+
+WITH subquery AS (
+	SELECT continent, name as country, population
+	FROM Country INNER JOIN Encompasses
+	ON Country.code = Encompasses.country
+	ORDER BY continent ASC, population DESC
+	)
+
+(SELECT *
+FROM subquery
+WHERE continent = 'Africa'
+LIMIT 5)
+UNION
+
+(SELECT *
+FROM subquery
+WHERE continent = 'Asia'
+LIMIT 5)
+UNION
+
+(SELECT *
+FROM subquery
+WHERE continent = 'Europe'
+LIMIT 5)
+UNION
+
+(SELECT *
+FROM subquery
+WHERE continent = 'Australia/Oceania'
+LIMIT 5)
+UNION
+
+(SELECT *
+FROM subquery
+WHERE continent = 'North America'
+LIMIT 5)
+UNION
+
+(SELECT *
+FROM subquery
+WHERE continent = 'South America'
+LIMIT 5)
+
+ORDER BY continent ASC, population DESC;
